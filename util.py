@@ -15,9 +15,9 @@ def array(lines):
     if isinstance(lines, str): lines = lines.splitlines()
     return mapt(vector, lines)
 
-def vector(line):
+def vector(line, sep=','):
     "Parse a str into a tuple of atoms (numbers or str tokens)."
-    return mapt(atom, line.replace(',', ' ').split())
+    return mapt(atom, line.replace(sep, ' ').split())
 
 def integers(text):
     "Return a tuple of all integers in a string."

@@ -1,4 +1,5 @@
-from util import *
+# pylint: disable=C0103
+from util import inputstr
 
 data1 = inputstr(1)
 
