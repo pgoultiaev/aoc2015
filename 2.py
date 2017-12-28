@@ -14,8 +14,8 @@ def ribbon(line):
     return sides[0] * 2 + sides[1] * 2 + l * w * h
 
 
-def parse(input):
-    return vector(input, sep='x')
+def parse(data):
+    return vector(data, sep='x')
 
 
 def tests():

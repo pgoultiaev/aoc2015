@@ -4,19 +4,20 @@ from util import inputstr
 data1 = inputstr(1)
 
 
-def solve1(input):
-    return input.count("(") - input.count(")")
+def solve1(data):
+    return data.count("(") - data.count(")")
 
 
-def solve2(input):
+def solve2(data):
     floor = 0
-    for pos, char in enumerate(input):
+    for pos, char in enumerate(data):
         if char == '(':
             floor += 1
         else:
             floor -= 1
         if floor == -1:
             return pos + 1
+    return -1
 
 
 def tests():

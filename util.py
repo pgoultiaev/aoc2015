@@ -14,8 +14,10 @@ def inputstr(day):
 
 
 def array(lines):
-    "Parse an iterable of str lines into a 2-D array. If `lines` is a str, splitlines."
-    if isinstance(lines, str): lines = lines.splitlines()
+    """Parse an iterable of str lines into a 2-D array.
+    If `lines` is a str, splitlines."""
+    if isinstance(lines, str):
+        lines = lines.splitlines()
     return mapt(vector, lines)
 
 
@@ -40,10 +42,6 @@ def atom(token):
             return token
 
 
-def error(err=RuntimeError, *args):
-    raise err(*args)
-
-
-def mapt(fn, *args):
+def mapt(func, *args):
     "Do a map, and make the results into a tuple."
-    return tuple(map(fn, *args))
+    return tuple(map(func, *args))

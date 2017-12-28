@@ -1,28 +1,28 @@
 from util import inputstr
 
 
-def visit(input):
+def visit(data):
     houses_visited = [(0, 0)]
     x = y = 0
-    for pos, dir in enumerate(input):
-        x, y = move(dir, x, y)
+    for _, direction in enumerate(data):
+        x, y = move(direction, x, y)
         houses_visited.append((x, y))
 
     return houses_visited
 
 
-def visit2(input):
-    return visit(input[::2]) + visit(input[1::2])
+def visit2(data):
+    return visit(data[::2]) + visit(data[1::2])
 
 
-def move(dir, x, y):
-    if dir == '<':
+def move(direction, x, y):
+    if direction == '<':
         x -= 1
-    elif dir == '>':
+    elif direction == '>':
         x += 1
-    elif dir == '^':
+    elif direction == '^':
         y -= 1
-    elif dir == 'v':
+    elif direction == 'v':
         y += 1
     return x, y
 
