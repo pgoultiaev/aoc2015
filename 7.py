@@ -10,12 +10,12 @@ def resolve(wire, wires, ops):
     if not isinstance(wires[wire], tuple):
         return wires[wire]
 
-    command, args = wires[wire]
-    if command == 'ASSIGN':
+    op, args = wires[wire]
+    if op == 'ASSIGN':
         res = resolve(args[0], wires, ops)
     else:
         resolved = [resolve(w, wires, ops) for w in args]
-        res = ops[command](*resolved)
+        res = ops[op](*resolved)
     wires[wire] = res
     return res
 
