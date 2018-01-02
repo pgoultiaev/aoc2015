@@ -31,7 +31,7 @@ def run(data, wires):
     wires[target_wire] = (op, tuple(args_values))
 
 
-def solve1(filename, wire):
+def solve1(filename, wire, override_val=None):
     wires = {}
     ops = {
         'ASSIGN': lambda a: a,
@@ -44,7 +44,15 @@ def solve1(filename, wire):
 
     run1 = partial(run, wires=wires)
     map(run1, readinput(filename))
+
+    if override_val:
+        wires['b'] = override_val
     return resolve(wire, wires, ops)
+
+
+def solve2():
+    a_val = solve1(7, 'a')
+    return solve1(7, 'a', a_val)
 
 
 def tests():
@@ -55,3 +63,4 @@ def tests():
 tests()
 
 print(solve1(7, 'a'))
+print(solve2())
