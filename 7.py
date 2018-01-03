@@ -1,6 +1,5 @@
-from util import vector, readinput
+from util import readinput
 from functools import partial
-from collections import defaultdict
 import re
 
 
@@ -11,11 +10,8 @@ def resolve(wire, wires, ops):
         return wires[wire]
 
     op, args = wires[wire]
-    if op == 'ASSIGN':
-        res = resolve(args[0], wires, ops)
-    else:
-        resolved = [resolve(w, wires, ops) for w in args]
-        res = ops[op](*resolved)
+    resolved = [resolve(w, wires, ops) for w in args]
+    res = ops[op](*resolved)
     wires[wire] = res
     return res
 
