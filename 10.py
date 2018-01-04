@@ -5,14 +5,11 @@ from itertools import islice
 def solve(data):
     while True:
         answ = ''
-        i = 0
         cutoff = 0
-        while i < len(data):
-            char = data[i]
-            if i == len(data) - 1 or char != data[i + 1]:
-                answ += str(i - cutoff + 1) + char
-                cutoff = i + 1
-            i += 1
+        for pos, char in enumerate(data):
+            if pos == len(data) - 1 or char != data[pos + 1]:
+                answ += str(pos - cutoff + 1) + str(char)
+                cutoff = pos + 1
         data = answ
         yield data
 
