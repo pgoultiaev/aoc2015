@@ -1,6 +1,7 @@
 """Utility functions for input and parsing (taken from Peter Norvig)
 """
 import re
+from itertools import chain, islice
 
 
 def readinput(day):
@@ -45,3 +46,16 @@ def atom(token):
 def mapt(func, *args):
     "Do a map, and make the results into a tuple."
     return tuple(map(func, *args))
+
+
+# Functions on Iterables
+
+
+def flatten(listOfLists):
+    "Flatten one level of nesting"
+    return chain.from_iterable(listOfLists)
+
+
+def nth(iterable, n, default=None):
+    "Returns the nth item of iterable, or a default value"
+    return next(islice(iterable, n, None), default)
