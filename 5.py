@@ -1,4 +1,4 @@
-from util import readinput
+from util import readinput, subsequences
 
 
 def valid(data):
@@ -12,10 +12,6 @@ def valid(data):
     if enough_vowels and no_forbiddenwords and has_consec_chars:
         return 1
     return 0
-
-
-def subsequences(seq, n):
-    return [seq[i:i + n] for i in range(len(seq) + 1 - n)]
 
 
 def valid2(data):

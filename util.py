@@ -49,6 +49,8 @@ def mapt(func, *args):
 
 
 # Functions on Iterables
+def subsequences(seq, n):
+    return [seq[i:i + n] for i in range(len(seq) + 1 - n)]
 
 
 def flatten(listOfLists):
