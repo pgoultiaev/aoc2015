@@ -61,3 +61,11 @@ def flatten(listOfLists):
 def nth(iterable, n, default=None):
     "Returns the nth item of iterable, or a default value"
     return next(islice(iterable, n, None), default)
+
+
+# Functions on 2-D grids
+def neighbours8(point):
+    "returns the 8 neighbours of a given point"
+    x, y = point
+    return ((x - 1, y - 1), (x, y - 1), (x + 1, y - 1), (x - 1, y), (x + 1, y),
+            (x - 1, y + 1), (x, y + 1), (x + 1, y + 1))
