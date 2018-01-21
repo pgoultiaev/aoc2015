@@ -1,8 +1,7 @@
 from util import readinput, nth, neighbours8
 
 
-def read_grid(data, size):
-    grid = set((x, y) for x in range(size) for y in range(size))
+def read_grid(data):
     return {(x, y): (1 if light == '#' else 0)
             for y, row in enumerate(data)
             for x, light in enumerate(row.rstrip('\n'))}
@@ -34,7 +33,7 @@ def solve2(grid, size):
 
 
 def tests():
-    grid = read_grid(readinput('18-example'), 6)
+    grid = read_grid(readinput('18-example'))
     assert on_off((1, 0), grid) == 0
     assert on_off((2, 0), grid) == 1
     assert sum(nth(solve(grid), 4).values()) == 4
@@ -44,6 +43,6 @@ def tests():
 
 tests()
 
-GRID = read_grid(readinput('18'), 100)
+GRID = read_grid(readinput('18'))
 print(sum(nth(solve(GRID), 99).values()))
 print(sum(nth(solve2(GRID, 100), 99).values()))
