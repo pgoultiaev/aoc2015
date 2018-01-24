@@ -1,4 +1,3 @@
-from itertools import islice
 from math import sqrt
 
 
@@ -32,4 +31,5 @@ def tests():
 
 tests()
 
+print(solve(29000000))
 print(solve2(29000000))
