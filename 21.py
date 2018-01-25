@@ -1,7 +1,7 @@
 from itertools import combinations
 from util import array, readinput
 
-HEALTH = 100
+PLAYER_HEALTH = 100
 WEAPONS = [(8, 4, 0), (10, 5, 0), (25, 6, 0), (40, 7, 0), (74, 8, 0)]
 ARMOR = [(13, 0, 1), (31, 0, 2), (53, 0, 3), (75, 0, 4), (102, 0, 5)]
 RINGS = [(25, 1, 0), (50, 2, 0), (100, 3, 0), (20, 0, 1), (40, 0, 2), (80, 0,
@@ -45,5 +45,5 @@ def tests():
 tests()
 
 BOSS = tuple([x[-1] for x in array(readinput(21))])
-print(solve(BOSS, 100))
-print(solve2(BOSS, 100))
+print(solve(BOSS, PLAYER_HEALTH))
+print(solve2(BOSS, PLAYER_HEALTH))
