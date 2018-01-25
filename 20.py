@@ -16,9 +16,9 @@ def solve2(data):
         for e in range(1, int(sqrt(house) + 1)):
             if house % e == 0:
                 if e * 50 >= house:
-                    divs.append(e)
+                    divs += [e]
                 if int(house / e) * 50 >= house:
-                    divs.append(int(house / e))
+                    divs += [int(house / e)]
         if sum(divs) * 11 >= data:
             return house
 
